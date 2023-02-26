@@ -1,7 +1,7 @@
 import React from "react"
 import Jogo from "./Jogo"
 import Letras from "./Letras"
-import palavras from "./palavras"
+import palavras from "../palavras"
 
 import forca0 from "../assets/forca0.png"
 import forca1 from "../assets/forca1.png"
