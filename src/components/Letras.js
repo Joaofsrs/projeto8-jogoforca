@@ -13,7 +13,7 @@ export default function Letras(props) {
 function Botao(props){
     return (
         <>
-            <button onClick={() => props.clickLetra(props.letra)} disabled={(props.fim || (!(props.selecionado && !props.clicado.find( find => props.letra === find))))} className={(props.selecionado && !props.clicado.find( find => props.letra === find)) ? ((props.fim) ? 'achado' : '') : 'achado'} >{props.letra.toUpperCase()}</button>
+            <button data-test="letter" onClick={() => props.clickLetra(props.letra)} disabled={(props.fim || (!(props.selecionado && !props.clicado.find( find => props.letra === find))))} className={(props.selecionado && !props.clicado.find( find => props.letra === find)) ? ((props.fim) ? 'achado' : '') : 'achado'} >{props.letra.toUpperCase()}</button>
         </>
     );
 }

@@ -1,11 +1,11 @@
 export default function Jogo(props) {
     return (
         <div className="forca">
-            <img src={props.imagem} alt="imagem da forca" />
+            <img data-test="game-image" src={props.imagem} alt="imagem da forca" />
             <div className="forca-esquerda">
-                <button onClick={props.clickBotao}> Escolher Palavra </button>
+                <button data-test="choose-word" onClick={props.clickBotao}> Escolher Palavra </button>
                 <div className="palavra">
-                    <p className={(props.ganhou) ? "verde": ((props.perdeu) ? "vermelho" : "")}>{(props.perdeu) ? props.palavraEscolhida : props.palavra}</p>
+                    <p data-teste="word" className={(props.ganhou) ? "verde": ((props.perdeu) ? "vermelho" : "")}>{(props.perdeu) ? props.palavraEscolhida : props.palavra}</p>
                 </div>
             </div>
         </div>
