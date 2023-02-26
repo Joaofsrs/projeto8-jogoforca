@@ -3,7 +3,7 @@ export default function Letras(props) {
         <div className="teclas">
             <div className="teclado">
                 {props.alfabeto.map((letra) => 
-                (<Botao letra={letra} selecionado={props.iniciou} clicado={props.clicado} clickLetra={props.clickLetra} />)
+                (<Botao key={letra} fim={props.fim} letra={letra} selecionado={props.iniciou} clicado={props.clicado} clickLetra={props.clickLetra} />)
                 )}
             </div>
         </div>
@@ -13,7 +13,7 @@ export default function Letras(props) {
 function Botao(props){
     return (
         <>
-            <button onClick={() => props.clickLetra(props.letra)}  /*disabled={(props.selecionado && !props.clicado.find( find => props.letra === find)) ? 'false' : 'true'}*/ className={(props.selecionado && !props.clicado.find( find => props.letra === find)) ? '""' : 'achado'} >{props.letra.toUpperCase()}</button>
+            <button onClick={() => props.clickLetra(props.letra)} disabled={(props.fim || (!(props.selecionado && !props.clicado.find( find => props.letra === find))))} className={(props.selecionado && !props.clicado.find( find => props.letra === find)) ? ((props.fim) ? 'achado' : '') : 'achado'} >{props.letra.toUpperCase()}</button>
         </>
     );
 }

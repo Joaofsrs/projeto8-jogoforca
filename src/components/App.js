@@ -28,9 +28,19 @@ export default function App() {
     const [imgForca, setForca] = React.useState(imgForcas[erros]);
     const [ganhou, setVitoria] = React.useState(false);
     const [perdeu, setDerrota] = React.useState(false);
+    const [fim, setFim] = React.useState(false);
 
 
     function clickBotao(){
+        erros = 0;
+        setFim(false);
+        setPalavra('');
+        setEscolhida('');
+        setClicado([]);
+        setForca(imgForcas[erros]);
+        setVitoria(false);
+        setDerrota(false);
+
         let elemento = palavras[Math.floor(Math.random() * palavras.length)];
         setEscolhida(elemento);
         let tamanho = elemento.length;
@@ -63,6 +73,7 @@ export default function App() {
             }
             setPalavra(palavraNova)
             if(palavraNova.indexOf("_") === -1){
+                setFim(true);
                 setVitoria(true);
                 setForca(vitoria);
             }
@@ -73,13 +84,14 @@ export default function App() {
             setForca(imgForcas[erros]);
             if(erros >= 6){
                 setDerrota(true);
+                setFim(true);
             }
         }
     }
     return (
         <>
-            <Jogo palavra={palavra} palavraEscolhida={palavraEscolhida} alfabeto={alfabeto} iniciou={iniciou} clickBotao={clickBotao} imagem={imgForca} vitoria={vitoria} ganhou={ganhou} perdeu={perdeu} />
-            <Letras alfabeto={alfabeto} iniciou={iniciou} clicado={clicado} clickLetra={clickLetra} />
+            <Jogo palavra={palavra} palavraEscolhida={palavraEscolhida} alfabeto={alfabeto} iniciou={iniciou} clickBotao={clickBotao} imagem={imgForca} vitoria={vitoria} ganhou={ganhou} perdeu={perdeu}/>
+            <Letras alfabeto={alfabeto} iniciou={iniciou} clicado={clicado} clickLetra={clickLetra} fim={fim} />
         </>
     );
 }
