@@ -11,7 +11,7 @@ import forca4 from "../assets/forca4.png"
 import forca5 from "../assets/forca5.png"
 import forca6 from "../assets/forca6.png"
 
-import vitoria from "../assets/confete.gif"
+//import vitoria from "../assets/confete.gif"
 
 import "../css/reset.css"
 import "../css/style.css" 
@@ -59,7 +59,7 @@ export default function App() {
             let index = -2;
             let posicao = 0;
             let resultado = [];
-            while(index != -1){
+            while(index !== -1){
                 index = palavraEscolhida.indexOf(letra, posicao);
                 if(index >= 0 && !resultado.find((endereco) => endereco === index)){
                     resultado.push(index);
@@ -75,7 +75,7 @@ export default function App() {
             if(palavraNova.indexOf("_") === -1){
                 setFim(true);
                 setVitoria(true);
-                setForca(vitoria);
+                //setForca(vitoria);
             }
         }else{
             if(erros < 6){
@@ -90,7 +90,7 @@ export default function App() {
     }
     return (
         <>
-            <Jogo palavra={palavra} palavraEscolhida={palavraEscolhida} alfabeto={alfabeto} iniciou={iniciou} clickBotao={clickBotao} imagem={imgForca} vitoria={vitoria} ganhou={ganhou} perdeu={perdeu}/>
+            <Jogo palavra={palavra} palavraEscolhida={palavraEscolhida} alfabeto={alfabeto} iniciou={iniciou} clickBotao={clickBotao} imagem={imgForca} ganhou={ganhou} perdeu={perdeu}/>
             <Letras alfabeto={alfabeto} iniciou={iniciou} clicado={clicado} clickLetra={clickLetra} fim={fim} />
         </>
     );
